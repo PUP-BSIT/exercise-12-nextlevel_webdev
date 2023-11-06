@@ -15,4 +15,26 @@ document.addEventListener("DOMContentLoaded", function () {
         commentButton.disabled = !(nameInput.value && commentInput.value);
     }
 
+    // Add the event listener for the form submission
+    document.getElementById('comment_form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+        const name = nameInput.value;
+        const comment = commentInput.value;
+
+        // Create a new comment element
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
+
+        // Get the comment section and insert the new comment at the top
+        commentDisplay.insertBefore(newComment, commentDisplay.firstChild);
+
+        // Clear the input fields
+        nameInput.value = '';
+        commentInput.value = '';
+
+        // Disable the comment button after submitting
+        commentButton.disabled = true;
+    });
 });

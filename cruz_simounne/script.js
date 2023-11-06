@@ -1,19 +1,27 @@
-document.getElementById('commentForm').addEventListener('input', function() {
-    const fullName = document.getElementById('fullname').value;
+document.getElementById('comment_form').addEventListener('input', function() {
+    const full_name = document.getElementById('full_name').value;
     const comment = document.getElementById('comment').value;
-    const commentButton = document.getElementById('commentButton');
+    const comment_button = document.getElementById('comment_button');
 
-    if (fullName.trim() !== '' && comment.trim() !== '') {
-        commentButton.removeAttribute('disabled');
+    if (full_name.trim() !== '' && comment.trim() !== '') {
+        comment_button.removeAttribute('disabled');
     } else {
-        commentButton.setAttribute('disabled', 'true');
+        comment_button.setAttribute('disabled', 'true');
     }
 });
 
-document.getElementById('commentForm').addEventListener('submit', function(event) {
+document.getElementById('comment_form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const fullName = document.getElementById('fullname').value;
+    const full_name = document.getElementById('full_name').value;
     const comment = document.getElementById('comment').value;
-    
-    console.log(`Name: ${fullName}, Comment: ${comment}`);
+
+    const newComment = document.createElement('div');
+    newComment.classList.add('comment');
+    newComment.innerHTML = `<p><strong>${full_name}: </strong>${comment}</p>`;
+
+    const commentSection = document.querySelector('.comment-section');
+    commentSection.insertBefore(newComment, commentSection.firstChild);
+
+    document.getElementById('full_name').value = '';
+    document.getElementById('comment').value = '';
 });
