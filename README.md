@@ -2,4 +2,4 @@
 
 Group Name: Next Level
 Description: Our team, the "Next Level," is a dynamic group of passionate individuals with diverse skills and backgrounds. We share a common interest in web development and have collaborated on numerous exercises. These past experiences have taught us the importance of continuous learning and adaptation to emerging technologies. We believe in the power of collaboration and collective knowledge to achieve great things.
-Netlify URL: exercise-12-nextlevel.netlify.app
+Netlify URL: https://exercise-12-nextlevel.netlify.app
